@@ -38,3 +38,6 @@ class Rational():
 
     def __ifloordiv__(self, other_rational:'Rational'):
         return round(self.value // other_rational.value, 6)
+    
+    def __neg__(self):
+        return -self.value

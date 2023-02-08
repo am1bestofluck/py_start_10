@@ -6,9 +6,8 @@ from typing import Tuple
 
 
 class Complex():
-    #проверка ввода до этого этапа
     def __init__(self, stringified_val):
-        self.value = Complex('1+1').prepare_number(stringified_val)
+        self.value = Complex.prepare_number(None,stringified_val)
 
     def prepare_number(cls,user_input_i:str) -> Tuple[float]:
         devisor ='.'
@@ -23,18 +22,62 @@ class Complex():
         q =complex(real=tmp[0],imag=tmp[1]*sign)
         return q
 
+    def __add__(self, other_Complex:'Complex'):
+        return self.value + other_Complex.value
 
-    def __add__(self, other_rational:'Complex'):
-        return self.value + other_rational.value
+    def __iadd__(self, other_Complex:'Complex'):
+        return self.value + other_Complex.value
 
-    def __substract__(self, other_rational:'Complex'):
-        return self.value - other_rational.value
+    def __sub__(self, other_Complex:'Complex'):
+        return self.value - other_Complex.value
+
+    def __isub__(self, other_Complex:'Complex'):
+        return self.value - other_Complex.value
+
+    def __mul__(self, other_Complex:'Complex'):
+        return self.value * other_Complex.value
+
+    def __imul__(self, other_Complex:'Complex'):
+        return self.value * other_Complex.value
+
+    def __truediv__(self, other_Complex:'Complex'):
+        return self.value / other_Complex.value
+
+    def __itruediv__(self, other_Complex:'Complex'):
+        return self.value / other_Complex.value
+
+    def __neg__(self):
+        return -self.value
     
-    def __divide__(self, other_rational:'Complex'):
-        return self.value / other_rational.value
 
-    def __multiply__(self, other_rational:'Complex'):
-        return self.value * other_rational.value
 
-a = Complex("123+12rew")
-print(a.value)
+
+# def __add__(self, other_Complex:'Complex'):
+#         return self.value + other_Complex.value
+
+#     def __iadd__(self, other_Complex:'Complex'):
+#         return self.value + other_Complex.value
+
+#    
+    
+
+
+#     def __mul__(self, other_Complex:'Complex'):
+#         return self.value * other_Complex.value
+
+#     def __imul__(self, other_Complex:'Complex'):
+#         return self.value * other_Complex.value
+
+#     def __mod__(self, other_Complex:'Complex'):
+#         return self.value % other_Complex.value
+
+#     def __imod__(self, other_Complex:'Complex'):
+#         return self.value % other_Complex.value
+    
+#     def __floordiv__(self, other_Complex:'Complex'):
+#         return self.value // other_Complex.value
+
+#     def __ifloordiv__(self, other_Complex:'Complex'):
+#         return self.value // other_Complex.value
+    
+    

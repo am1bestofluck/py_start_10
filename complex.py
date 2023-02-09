@@ -48,36 +48,3 @@ class Complex():
 
     def __neg__(self):
         return -self.value
-    
-
-
-
-# def __add__(self, other_Complex:'Complex'):
-#         return self.value + other_Complex.value
-
-#     def __iadd__(self, other_Complex:'Complex'):
-#         return self.value + other_Complex.value
-
-#    
-    
-
-
-#     def __mul__(self, other_Complex:'Complex'):
-#         return self.value * other_Complex.value
-
-#     def __imul__(self, other_Complex:'Complex'):
-#         return self.value * other_Complex.value
-
-#     def __mod__(self, other_Complex:'Complex'):
-#         return self.value % other_Complex.value
-
-#     def __imod__(self, other_Complex:'Complex'):
-#         return self.value % other_Complex.value
-    
-#     def __floordiv__(self, other_Complex:'Complex'):
-#         return self.value // other_Complex.value
-
-#     def __ifloordiv__(self, other_Complex:'Complex'):
-#         return self.value // other_Complex.value
-    
-    

@@ -1,3 +1,4 @@
 never_share.py
 .folder
 __pycache__/
+logs_storage/*.log

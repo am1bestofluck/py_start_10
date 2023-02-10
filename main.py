@@ -1,10 +1,15 @@
 
 
+import sys
+
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, Update
 from telegram.ext import Application, CommandHandler, MessageHandler, filters
 
-
-from never_share import BOT_KEY
+try:
+    from never_share import BOT_KEY
+except ImportError:
+    print("Ключ придётся взять свой. Лежит в never_share.py под именем BOT_KEY")
+    sys.exit()
 
 from calculator import complex_solution, rational_solution
 from support_funcs import start, help, invalid_input

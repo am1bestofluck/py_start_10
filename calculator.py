@@ -1,3 +1,4 @@
+import datetime
 import logging
 import re
 
@@ -5,13 +6,19 @@ from telegram import Update
 from telegram.ext import ContextTypes
 
 
-from never_share import BOT_KEY
 from complex import Complex
 from rational import Rational
+
+logging.basicConfig(filename = f'./logs_storage/{datetime.date.today():%d-%m-%Y}_tg.log',
+level=logging.INFO, encoding='utf-8',filemode='a')
 
 
 async def rational_solution(update: Update, context: ContextTypes.DEFAULT_TYPE):
     format_error = "Didn't recognize number this time!"
+    #update.message['chat']['id']
+
+    logging.info(f"{datetime.datetime.now():%H-%M-%S}::{update.message['chat']['id']}::'{update.message['chat']['first_name']}"\
+        +f" {update.message['chat']['last_name']}':: {update.message['text']}")
     note_on_rational = "rational parsing and result here!"
     operators = ["\%", "\/\/", "\+", "\-", "\*", "\/"]
     expression = update.message['text'].lower().strip('/rational').strip()
@@ -45,6 +52,8 @@ async def rational_solution(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 
 async def complex_solution(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    logging.info(f"{datetime.datetime.now():%H-%M-%S}::{update.message['chat']['id']}::'{update.message['chat']['first_name']}"\
+        +f" {update.message['chat']['last_name']}':: {update.message['text']}")
     format_error = "Didn't recognize number this time!"
     operators = ["\+", "\-", "\*", "\/"]
     expression = update.message['text'].lower().strip('/complex').strip()

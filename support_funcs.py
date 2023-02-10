@@ -1,17 +1,13 @@
 
-
+import datetime
 import logging
-import re
 
 from telegram import Update, KeyboardButton, ReplyKeyboardMarkup
-from telegram.ext import Application, CallbackQueryHandler, CommandHandler,\
-    ContextTypes
+from telegram.ext import ContextTypes
 
 
-from never_share import BOT_KEY
-from complex import Complex
-from rational import Rational
-from calculator import complex_solution, rational_solution
+logging.basicConfig(filename = f'./log_storage/{datetime.date.today():%d-%m-%Y}_tg.log',
+level=logging.INFO, encoding='utf-8', filemode='a')
 
 
 note_on_help = "/start for intro.\n"\
@@ -22,6 +18,8 @@ note_on_help = "/start for intro.\n"\
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE,
     helpmsg = note_on_help):
+    logging.info(f"{datetime.datetime.now():%H-%M-%S}::{update.message['chat']['id']}::'{update.message['chat']['first_name']}"\
+        +f" {update.message['chat']['last_name']}':: {update.message['text']}")
     helpButton = KeyboardButton("/help")
     note_on_start = "That is <b>calculator</b> , deals in exactly <b>two"\
     +" rational or two complex numbers.</b>\n"+\
@@ -37,10 +35,14 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE,
 
 
 async def help(update: Update, context: ContextTypes.DEFAULT_TYPE,msg_:str = note_on_help):
+    logging.info(f"{datetime.datetime.now():%H-%M-%S}::{update.message['chat']['id']}::'{update.message['chat']['first_name']}"\
+        +f" {update.message['chat']['last_name']}':: {update.message['text']}")
     await context.bot.send_message(
         chat_id=update.effective_chat.id,
         text = msg_)
 
 async def invalid_input(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    logging.info(f"{datetime.datetime.now():%H-%M-%S}::{update.message['chat']['id']}::'{update.message['chat']['first_name']}"\
+        +f" {update.message['chat']['last_name']}':: {update.message['text']}")
     default_ = "No can do."
     await context.bot.send_message(chat_id=update.effective_chat.id, text=default_)

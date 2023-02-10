@@ -27,7 +27,9 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 async def help(update: Update, context: ContextTypes.DEFAULT_TYPE):
     note_on_help = "/start for intro.\n"\
         + "/complex {number1}{operator}{number2} #for complex numbers evaluation\n"\
-        + "/rational {number1}{operator}{number2}# for rational numbers evaluation"
+        + "as in /complex 5+2i*2-3i\n"\
+        + "/rational {number1}{operator}{number2}# for rational numbers evaluation"\
+        + "as in /rational 50*3"
     await context.bot.send_message(
         chat_id=update.effective_chat.id,
         text=note_on_help)

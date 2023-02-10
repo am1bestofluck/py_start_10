@@ -2,8 +2,7 @@ import logging
 import re
 
 from telegram import Update
-from telegram.ext import Application, CallbackQueryHandler, CommandHandler,\
-    ContextTypes
+from telegram.ext import ContextTypes
 
 
 from never_share import BOT_KEY
